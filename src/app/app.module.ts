@@ -7,17 +7,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CreateContactsComponent } from './create-contacts/create-contacts.component';
 import { ContactsService } from './services/contacts.service';
+import { MainContactsComponent } from './main-contacts/main-contacts.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path: 'createContacts', component: CreateContactsComponent},
+  { path: 'myContacts', component: MainContactsComponent},
   //{ path: 'appComponent', component: AppComponent},
-  { path: '', redirectTo: 'appComponent', pathMatch: 'full'}
+  { path: '', component: HomeComponent},
+  { path: '', redirectTo: 'HomeComponent', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateContactsComponent
+    CreateContactsComponent,
+    MainContactsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,14 @@
-
-<h1>
-  {{title}}
-</h1>
-<a [routerLink]="['/']">This will display home component.</a>
-<a [routerLink]="['/createContacts']">This should go to the createContacts component.</a>
+<div id="container">
+  <div id="nav">
+    <h1 id="contacts-header" [routerLink]="['/']">
+      {{title}}
+    </h1>
+    <a [routerLink]="['/']" class="navi">Home</a>
+    <a [routerLink]="['/myContacts']" class="navi">My Contacts</a>
+    <a [routerLink]="['/createContacts']" class="navi">Create a Contact</a>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
 
+<!--8, 15, 29-->

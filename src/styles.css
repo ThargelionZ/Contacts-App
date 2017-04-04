@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*--------------------------------------------
+    Color Theme
+  ------------------------------------------*/
+
+/* Colors:
+
+   Sky:         #CAEBF2 (light blue)
+   Carbon:      #A9A9A9 (light gray)
+   Watermelon:  #FF3B3F (pink redish)
+   Neutral:     #EFEFEF (mostly white gray)
+
+ */
+
+
+body, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Asap", sans-serif;
+  text-decoration: none;
+  outline: none;
+}
+
+p, a {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #EFEFEF;
+}

@@ -1,0 +1,30 @@
+
+h1 {
+  cursor: pointer;
+}
+
+#nav {
+  display: flex;
+  padding: 15px 0px 15px 30px;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.navi {
+  display: flex;
+  text-decoration: none;
+  color: #A9A9A9;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+  transition: color 0.5s;
+}
+
+.navi:hover {
+  color: black;
+}
+
+#contacts-header {
+  display: inline;
+  color: #FF3B3F;
+  margin-right: 20px;
+}
