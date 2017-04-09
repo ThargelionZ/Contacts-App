@@ -53,10 +53,14 @@ h1 {
 .edit {
   font-size: 20px;
   color: #6699ff;;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .delete {
   font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 span {
