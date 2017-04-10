@@ -8,14 +8,14 @@
     <span class="desc-item" id="desc-icons">Edit/Delete</span>
   </div>
   <div *ngFor="let contact of contacts; let i = index" id="contacts{{i}}">
-    <div class="contact" id="contact{{i}}">
+    <div class="contact" id="contact{{i}}" [routerLink]="['/contactDetail', i]">
       <span class="contact-name" id="contact-name{{i}}">{{contact.firstName}} {{contact.lastName}}</span>
       <span class="contact-email" id="contact-email{{i}}">{{contact.email}}</span>
       <span class="contact-phone" id="contact-phone{{i}}">{{contact.phone}}</span>
       <span class="icons" id="icons{{i}}">
-        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true"></i>
+        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true" (click)="editContact()"></i>
         <!--<i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
-        <i id="delete{{i}}" class="delete fa fa-trash" aria-hidden="true"></i>
+        <i id="delete{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact()"></i>
         <!--<i class="fa fa-times" aria-hidden="true"></i>-->
       </span>
     </div>

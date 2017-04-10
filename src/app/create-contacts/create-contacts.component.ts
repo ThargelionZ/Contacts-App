@@ -7,13 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateContactsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit() {
   }
 
-  private contacts = [
-    {first: 'Fred', last: 'Jones'}
-  ]
+  ngOnInit() {
 
+  }
 }

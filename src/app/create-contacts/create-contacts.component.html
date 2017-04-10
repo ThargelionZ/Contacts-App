@@ -1,8 +1,44 @@
-<h1>Create a Contact</h1>
 
-<div>
-  <div *ngFor="let contact of contacts">
-    <p>Names</p>
-    <div>{{contact.last}}, {{contact.first}}</div>
-  </div>
+
+<div id="main-create">
+  <h1>Create a Contact</h1>
+  <form>
+    <div id="name">
+      <div>
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name">
+      </div>
+
+      <div>
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name">
+      </div>
+    </div>
+
+    <div id="additional-info">
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone">
+      </div>
+    </div>
+
+    <!--<label for="website">Website</label>-->
+    <!--<input type="text" id="website" name="website">-->
+
+    <!--<label for="birthday">Birthday</label>-->
+    <!--<input type="text" id="birthday" name="birthday">-->
+
+
+
+    <!--<label for="address">Address</label>-->
+    <!--<input type="text" id="address" name="address">-->
+
+    <input type="submit" value="Create" (click)="createContact()">
+  </form>
+
 </div>

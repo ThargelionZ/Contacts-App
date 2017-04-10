@@ -1,0 +1,17 @@
+<div *ngIf="bool" id="main-contact-detail">
+  <h1>{{contacts[contactIndex].firstName}} {{contacts[contactIndex].lastName}}</h1>
+  <div id="contact-details">
+    <div class="header">Email</div>
+    <p class="info">{{contacts[contactIndex].email}}</p>
+    <div class="header">Website</div>
+    <p class="info">{{contacts[contactIndex].website}}</p>
+    <div class="header">Birthday</div>
+    <p class="info">{{contacts[contactIndex].birthday}}</p>
+    <div class="header">Phone</div>
+    <p class="info">{{contacts[contactIndex].phone}}</p>
+    <div class="header">Address</div>
+    <p class="info">{{contacts[contactIndex].address}}</p>
+    <div id="backButton" [routerLink]="['/myContacts']">Back</div>
+  </div>
+</div>
+

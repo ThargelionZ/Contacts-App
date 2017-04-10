@@ -24,7 +24,7 @@ app.get('/contacts', function (req, res) {
   //res.sendFile('/Users/mylesparker/WebstormProjects/contactsApp/src/app/server/contacts.json');
   let contacts = getContacts();
   contacts = sortAscending(contacts);
-  console.log(contacts);
+  //console.log(contacts);
   res.end(contacts);
 });
 

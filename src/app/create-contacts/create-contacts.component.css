@@ -1,0 +1,37 @@
+
+h1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 0 10px 20px;
+}
+
+#main-create {
+  background-color: white;
+  width: 17%;
+  margin: 20px auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#additional-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 20px;
+}
+
+#first-name {
+  margin-right: 20px;
+}

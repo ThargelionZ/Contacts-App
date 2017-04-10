@@ -15,10 +15,24 @@ export class ContactsService {
     console.log(data);
     return data;
   }
+
   extractData(res) {
     let initial = res._body;
     initial = JSON.parse(initial);
     initial = initial.contacts;
     return initial;
+  }
+
+
+  createContact() {
+    
+  }
+
+  editContact() {
+
+  }
+
+  deleteContact() {
+
   }
 }
