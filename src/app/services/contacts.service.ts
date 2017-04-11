@@ -12,7 +12,6 @@ export class ContactsService {
   getContacts() {
     var data = this.http.get("http://localhost:3000/contacts")
       .toPromise().then(this.extractData);
-    console.log(data);
     return data;
   }
 
@@ -52,7 +51,6 @@ export class ContactsService {
       .toPromise().then((data) => {
         let contacts = data['_body'];
         contacts = JSON.parse(contacts);
-        console.log(contacts);
         return contacts.contacts;
       })
   }

@@ -14,8 +14,9 @@
       <span class="contact-name" id="contact-nameA{{i}}" [routerLink]="['/contactDetail', contacts.length - 1 - i]" *ngIf="sortBool">{{contact.firstName}} {{contact.lastName}}</span>
       <span class="contact-email" id="contact-email{{i}}" [routerLink]="['/contactDetail', i]">{{contact.email}}</span>
       <span class="contact-phone" id="contact-phone{{i}}" [routerLink]="['/contactDetail', i]">{{contact.phone}}</span>
-      <span class="icons" id="icons{{i}}" [routerLink]="['/contactDetail', i]">
-        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true" [routerLink]="['/editContact', i]"></i>
+      <span class="icons" id="icons{{i}}">
+        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true" [routerLink]="['/editContact', i]" *ngIf="!sortBool"></i>
+        <i id="editA{{i}}" class="edit fa fa-pencil" aria-hidden="true" [routerLink]="['/editContact', contacts.length - 1 - i]" *ngIf="sortBool"></i>
         <!--<i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
         <i id="delete{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact(i)" *ngIf="!sortBool"></i>
         <i id="deleteA{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact(contacts.length - 1 - i)" *ngIf="sortBool"></i>

@@ -16,10 +16,6 @@ export class ContactDetailComponent implements OnInit {
     this.contactIndex = _route.snapshot.params["index"];
     contactsService.getContacts().then((newInfo) => {
       this.contacts = newInfo;
-      console.log(this.contacts);
-      console.log(this.contactIndex);
-      console.log(this.contacts[this.contactIndex]);
-      console.log(this.contacts[this.contactIndex].firstName);
       this.bool = true;
     });
   }
