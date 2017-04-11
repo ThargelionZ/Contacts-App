@@ -65,6 +65,25 @@ app.put('/editContact', function(req, res) {
   res.end();
 });
 
+app.put('/searchContacts/:searchItem', function(req, res) {
+  var newContacts = {contacts: []};
+  var contacts = getContacts();
+  contacts = JSON.parse(contacts);
+  for (var i = 0; i < contacts.contacts.length; i++) {
+    for (var j in contacts.contacts[i]) {
+      if (j == 'firstName' || j == 'lastName') {
+        if (contacts.contacts[i][j].toLowerCase().indexOf(req.params.searchItem.toLowerCase()) != -1) {
+          newContacts.contacts.push(contacts.contacts[i]);
+          break;
+        }
+      }
+    }
+  }
+  newContacts = JSON.stringify(newContacts);
+  newContacts = sortAscending(newContacts);
+  res.end(newContacts);
+});
+
 // app.post('/', function (req, res) {
 //   res.sendfile("contacts.json");
 // });

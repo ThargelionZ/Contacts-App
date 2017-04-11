@@ -1,5 +1,9 @@
 <div id="main-contacts">
-  <h1>My Contacts</h1>
+  <div id="header">
+    <h1>My Contacts</h1>
+    <label for="search-bar">Search Contacts: </label>
+    <input type="text" id="search-bar" (keyup)="searchContacts()" [(ngModel)]="searchItem">
+  </div>
   <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
   <div id="description">
     <span class="desc-item" id="desc-name1" *ngIf="sortBool" (click)="sortContacts()">Name (Sort Ascending)</span>

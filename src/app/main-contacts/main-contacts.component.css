@@ -1,7 +1,21 @@
 
-h1 {
+#header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-left: 15px;
+}
+
+#search-bar {
+  margin-left: 10px;
+}
+
+h1 {
   padding: 10px 0 10px 20px;
+  display: inline-block;
 }
 
 #main-contacts {

@@ -42,6 +42,14 @@ export class ContactsService {
     });
   }
 
+  searchContacts(searchItem) {
+    return this.http.put('http://localhost:3000/searchContacts/' + searchItem, searchItem).toPromise().then((res) => {
+      let contacts = JSON.parse(res['_body']);
+      contacts = contacts.contacts;
+      return contacts;
+    })
+  }
+
   sortAscending() {
 
   }

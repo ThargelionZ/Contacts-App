@@ -9,7 +9,7 @@ import { ContactsService } from "../services/contacts.service";
 export class MainContactsComponent implements OnInit {
 
   contacts = [];
-
+  searchItem = "";
   sortBool = false;
 
   constructor(private contactsService: ContactsService) {
@@ -48,6 +48,19 @@ export class MainContactsComponent implements OnInit {
         this.contacts = data;
       });
       this.sortBool = true;
+    }
+  }
+
+  searchContacts() {
+    if (this.searchItem !== "") {
+      this.sortBool = false;
+      this.contactsService.searchContacts(this.searchItem).then((data) => {
+        this.contacts = data;
+      })
+    } else {
+      this.contactsService.getContacts().then((newInfo) => {
+        this.contacts = newInfo;
+      })
     }
   }
 
