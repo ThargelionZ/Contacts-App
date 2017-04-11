@@ -2,20 +2,23 @@
   <h1>My Contacts</h1>
   <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
   <div id="description">
-    <span class="desc-item" id="desc-name">Name</span>
+    <span class="desc-item" id="desc-name1" *ngIf="sortBool" (click)="sortContacts()">Name (Sort Ascending)</span>
+    <span class="desc-item" id="desc-name2" *ngIf="!sortBool" (click)="sortContacts()">Name (Sort Descending)</span>
     <span class="desc-item" id="desc-email">Email</span>
     <span class="desc-item" id="desc-phone">Phone</span>
     <span class="desc-item" id="desc-icons">Edit/Delete</span>
   </div>
   <div *ngFor="let contact of contacts; let i = index" id="contacts{{i}}">
-    <div class="contact" id="contact{{i}}" [routerLink]="['/contactDetail', i]">
-      <span class="contact-name" id="contact-name{{i}}">{{contact.firstName}} {{contact.lastName}}</span>
-      <span class="contact-email" id="contact-email{{i}}">{{contact.email}}</span>
-      <span class="contact-phone" id="contact-phone{{i}}">{{contact.phone}}</span>
-      <span class="icons" id="icons{{i}}">
-        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true" (click)="editContact()"></i>
+    <div class="contact" id="contact{{i}}" (click)="getIndex(i)">
+      <span class="contact-name" id="contact-name{{i}}" [routerLink]="['/contactDetail', i]" *ngIf="!sortBool">{{contact.firstName}} {{contact.lastName}}</span>
+      <span class="contact-name" id="contact-nameA{{i}}" [routerLink]="['/contactDetail', contacts.length - 1 - i]" *ngIf="sortBool">{{contact.firstName}} {{contact.lastName}}</span>
+      <span class="contact-email" id="contact-email{{i}}" [routerLink]="['/contactDetail', i]">{{contact.email}}</span>
+      <span class="contact-phone" id="contact-phone{{i}}" [routerLink]="['/contactDetail', i]">{{contact.phone}}</span>
+      <span class="icons" id="icons{{i}}" [routerLink]="['/contactDetail', i]">
+        <i id="edit{{i}}" class="edit fa fa-pencil" aria-hidden="true" [routerLink]="['/editContact', i]"></i>
         <!--<i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
-        <i id="delete{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact()"></i>
+        <i id="delete{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact(i)" *ngIf="!sortBool"></i>
+        <i id="deleteA{{i}}" class="delete fa fa-trash" aria-hidden="true" (click)="deleteContact(contacts.length - 1 - i)" *ngIf="sortBool"></i>
         <!--<i class="fa fa-times" aria-hidden="true"></i>-->
       </span>
     </div>

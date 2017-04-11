@@ -24,15 +24,36 @@ export class ContactsService {
   }
 
 
-  createContact() {
-    
+  createContact(contact) {
+    this.http.post("http://localhost:3000/createContact", contact)
+      .toPromise().then();
   }
 
-  editContact() {
+  editContact(contact) {
+    return this.http.put("http://localhost:3000/editContact", contact, contact)
+      .toPromise().then(() => {
+        return true;
+    });
+  }
+
+  deleteContact(index) {
+    return this.http.delete("http://localhost:3000/deleteContact/" + index)
+      .toPromise().then(() => {
+      return true;
+    });
+  }
+
+  sortAscending() {
 
   }
 
-  deleteContact() {
-
+  sortDescending() {
+    return this.http.get("http://localhost:3000/sortDescending")
+      .toPromise().then((data) => {
+        let contacts = data['_body'];
+        contacts = JSON.parse(contacts);
+        console.log(contacts);
+        return contacts.contacts;
+      })
   }
 }

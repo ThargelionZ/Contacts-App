@@ -10,6 +10,8 @@ export class MainContactsComponent implements OnInit {
 
   contacts = [];
 
+  sortBool = false;
+
   constructor(private contactsService: ContactsService) {
     contactsService.getContacts().then((newInfo) => {
       this.contacts = newInfo;
@@ -18,6 +20,35 @@ export class MainContactsComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  getIndex(i) {
+    console.log(i);
+    console.log(this.contacts.length - 1 - i);
+  }
+
+  deleteContact(index) {
+    console.log(index);
+    console.log(this.contacts.length - 1 - index);
+    this.contactsService.deleteContact(index).then((bool) => {
+      this.contactsService.getContacts().then((newInfo) => {
+        this.contacts = newInfo;
+      });
+    });
+  }
+
+  sortContacts() {
+    if(this.sortBool) {
+      this.sortBool = false;
+      this.contactsService.getContacts().then((newInfo) => {
+        this.contacts = newInfo;
+      });
+    } else {
+      this.contactsService.sortDescending().then((data) => {
+        this.contacts = data;
+      });
+      this.sortBool = true;
+    }
   }
 
   // contacts = [

@@ -10,11 +10,13 @@ import { ContactsService } from './services/contacts.service';
 import { MainContactsComponent } from './main-contacts/main-contacts.component';
 import { HomeComponent } from './home/home.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 const appRoutes: Routes = [
   { path: 'createContacts', component: CreateContactsComponent},
   { path: 'myContacts', component: MainContactsComponent},
   { path: 'contactDetail/:index', component: ContactDetailComponent},
+  { path: 'editContact/:index', component: EditContactComponent},
   //{ path: 'appComponent', component: AppComponent},
   { path: '', component: HomeComponent},
   { path: '', redirectTo: 'HomeComponent', pathMatch: 'full'}
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     CreateContactsComponent,
     MainContactsComponent,
     HomeComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,

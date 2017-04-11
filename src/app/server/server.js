@@ -21,11 +21,48 @@ app.get('/products/:id', function (req, res, next) {
 });
 
 app.get('/contacts', function (req, res) {
-  //res.sendFile('/Users/mylesparker/WebstormProjects/contactsApp/src/app/server/contacts.json');
   let contacts = getContacts();
   contacts = sortAscending(contacts);
-  //console.log(contacts);
   res.end(contacts);
+});
+
+
+app.get('/sortDescending', function (req, res) {
+  let contacts = getContacts();
+  contacts = sortDescending(contacts);
+  res.end(contacts);
+});
+
+app.post('/createContact', function (req, res) {
+  let contacts = getContacts();
+  contacts = JSON.parse(contacts);
+  contacts.contacts.push(req.body);
+  contacts = JSON.stringify(contacts);
+  contacts = sortAscending(contacts);
+  fs.writeFileSync("contacts.json", contacts);
+  res.end();
+  });
+
+app.delete('/deleteContact/:index', function(req, res) {
+  let contacts = getContacts();
+  contacts = JSON.parse(contacts);
+  console.log(contacts);
+  contacts.contacts.splice(req.params.index, 1);
+  console.log(req.params.index);
+  console.log(contacts);
+  contacts = JSON.stringify(contacts);
+  fs.writeFileSync("contacts.json", contacts);
+  res.end();
+});
+
+app.put('/editContact', function(req, res) {
+  let contacts = {
+    contacts: req.body
+  };
+  contacts = JSON.stringify(contacts);
+  contacts = sortAscending(contacts);
+  fs.writeFileSync("contacts.json", contacts);
+  res.end();
 });
 
 // app.post('/', function (req, res) {
@@ -46,7 +83,7 @@ function sortAscending(JSONcontacts) {
   var temp;
   for(var i = 0, l = contacts.contacts.length; i < l; i++){
     for(var j = 0, l = contacts.contacts.length - 1; j < l; j++) {
-      if (contacts.contacts[j + 1].firstName < contacts.contacts[j].firstName) {
+      if (contacts.contacts[j + 1].firstName.toLowerCase() < contacts.contacts[j].firstName.toLowerCase()) {
         temp = contacts.contacts[j];
         contacts.contacts[j] = contacts.contacts[j + 1];
         contacts.contacts[j + 1] = temp;
@@ -57,4 +94,18 @@ function sortAscending(JSONcontacts) {
   return contacts;
 }
 
-
+function sortDescending(JSONcontacts) {
+  let contacts = JSON.parse(JSONcontacts);
+  var temp;
+  for(var i = 0, l = contacts.contacts.length; i < l; i++){
+    for(var j = 0, l = contacts.contacts.length - 1; j < l; j++) {
+      if (contacts.contacts[j + 1].firstName.toLowerCase() > contacts.contacts[j].firstName.toLowerCase()) {
+        temp = contacts.contacts[j];
+        contacts.contacts[j] = contacts.contacts[j + 1];
+        contacts.contacts[j + 1] = temp;
+      }
+    }
+  }
+  contacts = JSON.stringify(contacts);
+  return contacts;
+}

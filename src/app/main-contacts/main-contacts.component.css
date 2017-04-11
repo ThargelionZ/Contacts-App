@@ -26,8 +26,9 @@ h1 {
   color: #FF3B3F;
 }
 
-#desc-name {
+#desc-name1, #desc-name2 {
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .contact {
@@ -41,11 +42,17 @@ h1 {
 
 .contact:hover {
   background-color: #F5F5F5;
+}
+
+.contact > span {
   cursor: pointer;
+  outline: none;
 }
 
 .contact-name {
   justify-content: flex-start;
+  cursor: pointer;
+  outline: none;
 }
 
 .icons {
