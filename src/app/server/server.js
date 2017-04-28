@@ -18,10 +18,10 @@ const url = 'mongodb://localhost:27017/contactsDatabase';
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to mongo server: " + url);
-  //removeDocument(db, function() {});
+  removeDocument(db, function() {});
   //insertDocuments(db, function() {});
   //db.dropDatabase();
-  //findDocuments(db, function() {});
+  findDocuments(db, function() {});
   db.close();
 });
 
