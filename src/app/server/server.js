@@ -27,7 +27,7 @@ MongoClient.connect(url, function(err, db) {
   //removeDocument(db, function() {});
   //insertDocuments(db, function() {});
   //db.dropDatabase();
-  //findDocuments(db, function() {});
+  findDocuments(db, function() {});
 
   app.get('/products/:id', function (req, res, next) {
     res.json({msg: "This is CORS-enabled for all origins."});
@@ -113,10 +113,14 @@ MongoClient.connect(url, function(err, db) {
       assert.equal(err, null);
       console.log("Found the following records");
       console.log(docs);
-      let contacts = docs[0];
+      let contacts = {
+        contacts: docs
+      };
       //console.log(docs[0].contacts);
       callback(contacts);
     });
+
+    //return contacts;
   }
 
   function sortAscending(JSONcontacts) {
@@ -151,24 +155,25 @@ MongoClient.connect(url, function(err, db) {
     return contacts;
   }
 
-  var insertDocuments = function(db, callback) {
+  function insertDocuments (db, callback) {
     // Get the documents collection
     var collection = db.collection('contacts');
     let contacts = getContacts();
     contacts = JSON.parse(contacts);
     // Insert some documents
-    collection.insertMany([
-      contacts
-    ], function(err, result) {
+    console.log(contacts.contacts);
+    collection.insertMany(
+      contacts.contacts
+    , function(err, result) {
       assert.equal(err, null);
-      assert.equal(1, result.result.n);
-      assert.equal(1, result.ops.length);
-      console.log("Inserted 1 documents into the collection");
+      assert.equal(15, result.result.n);
+      assert.equal(15, result.ops.length);
+      console.log("Inserted 15 documents into the collection");
       callback(result);
     });
   };
 //
-  var findDocuments = function(db, callback) {
+  function findDocuments(db, callback) {
     // Get the documents collection
     var collection = db.collection('contacts');
     // Find some documents
