@@ -11,7 +11,7 @@ h1 {
 }
 
 .header {
-  width: 530px;
+  width: 100%;/*530px;*/
   font-size: 25px;
   font-weight: bolder;
   border-bottom: 1px solid black;
