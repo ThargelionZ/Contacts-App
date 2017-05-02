@@ -28,8 +28,8 @@ export class ContactsService {
       .toPromise().then();
   }
 
-  editContact(contact) {
-    return this.http.put("http://localhost:3000/editContact", contact, contact)
+  editContact(contact, index) {
+    return this.http.put("http://localhost:3000/editContact/" + index, contact, contact)
       .toPromise().then(() => {
         return true;
     });

@@ -51,7 +51,7 @@ export class EditContactComponent implements OnInit {
       address: this.address
     };
     this.contacts[this.contactIndex] = contact;
-    this.contactsService.editContact(this.contacts).then();
+    this.contactsService.editContact(this.contacts, this.contactIndex).then();
   }
 
 }

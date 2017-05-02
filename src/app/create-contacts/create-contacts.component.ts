@@ -34,8 +34,15 @@ export class CreateContactsComponent implements OnInit {
       website: this.website,
       birthday: this.birthday,
       address: this.address
-    };
-
+    }
     this.contactsService.createContact(contact);
+
+    this.firstName = undefined;
+    this.lastName = undefined;
+    this.email = undefined;
+    this.phone = undefined;
+    this.website = undefined;
+    this.birthday = undefined;
+    this.address = undefined;
   }
 }
